@@ -1,0 +1,29 @@
+﻿@page "/diodocs"
+@using DDBlazorApp1.Data
+@inject DDExcelService ddexcelservice
+@inject DDPdfService ddpdfservice
+
+<h1>DioDocs</h1>
+
+<p>Current platform: @platformname</p>
+
+<button class="btn btn-primary" @onclick="DioDocsRun">Create</button>
+
+<p></p>
+
+<p>Status: @status</p>
+
+@functions {
+    string platformname = "Blazor App (Server Side)";
+
+    string status = "";
+
+    void DioDocsRun()
+    {
+        ddexcelservice.Create(platformname);
+
+        ddpdfservice.Create(platformname);
+
+        status = "Finished!";
+    }
+}
