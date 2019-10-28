@@ -9,8 +9,8 @@ namespace DDBlazorApp1.Data
 {
     public class DDPdfService
     {
-        public string key;
-        public string connectionstring;
+        public readonly string key;
+        public readonly string connectionstring;
 
         public DDPdfService(IOptions<LicenseStrings> licensestrings, IOptions<AzStorageStrings> azstoragestrings)
         {

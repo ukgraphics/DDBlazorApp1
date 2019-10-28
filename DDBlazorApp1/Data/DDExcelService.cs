@@ -6,8 +6,8 @@ namespace DDBlazorApp1.Data
 {
     public class DDExcelService
     {
-        public string key;
-        public string connectionstring;
+        public readonly string key;
+        public readonly string connectionstring;
 
         public DDExcelService(IOptions<LicenseStrings> licensestrings, IOptions<AzStorageStrings> azstoragestrings)
         {
