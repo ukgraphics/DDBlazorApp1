@@ -6,7 +6,7 @@ namespace DDBlazorApp1.Data
 {
     public class AzStorage
     {
-        public string storageConnectionString;
+        private readonly string storageConnectionString;
 
         public AzStorage(string connectionstring)
         {
