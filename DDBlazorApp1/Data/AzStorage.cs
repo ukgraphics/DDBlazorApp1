@@ -1,9 +1,6 @@
 ﻿using Microsoft.Azure.Storage;
 using Microsoft.Azure.Storage.Blob;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using System.IO;
-using static DDBlazorApp1.Startup;
 
 namespace DDBlazorApp1.Data
 {
