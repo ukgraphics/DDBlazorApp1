@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DDBlazorApp1.Data;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using DDBlazorApp1.Data;
 
 namespace DDBlazorApp1
 {
@@ -38,18 +32,6 @@ namespace DDBlazorApp1
 
             services.AddSingleton<DDExcelService>();
             services.AddSingleton<DDPdfService>();
-        }
-
-        public class LicenseStrings
-        {
-            public string DioDocsExcel { get; set; }
-            public string DioDocsPdf { get; set; }
-        }
-
-        public class AzStorageStrings
-        {
-            public string Dev { get; set; }
-            public string Product { get; set; }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

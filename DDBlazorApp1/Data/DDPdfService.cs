@@ -4,7 +4,6 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Drawing;
 using System.IO;
-using static DDBlazorApp1.Startup;
 
 namespace DDBlazorApp1.Data
 {
