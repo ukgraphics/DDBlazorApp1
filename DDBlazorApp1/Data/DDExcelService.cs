@@ -6,19 +6,17 @@ namespace DDBlazorApp1.Data
 {
     public class DDExcelService
     {
-        public readonly string key;
-        public readonly string connectionstring;
+        private OptionsAccessor optionsAccessor { get; }
 
-        public DDExcelService(IOptions<LicenseStrings> licensestrings, IOptions<AzStorageStrings> azstoragestrings)
+        public DDExcelService(IOptions<OptionsAccessor> _optionsAccessor)
         {
-            key = licensestrings.Value.DioDocsExcel;
-            connectionstring = azstoragestrings.Value.Dev;
+            optionsAccessor = _optionsAccessor.Value;
         }
 
         public void Create(string platformname)
         {
-            // トライアル用
-            //Workbook.SetLicenseKey(key);
+            // ライセンスキー設定
+            //Workbook.SetLicenseKey(optionsAccessor.licenseStrings.DioDocsExcel);
 
             // ワークブックの作成
             Workbook workbook = new Workbook();
@@ -36,7 +34,7 @@ namespace DDBlazorApp1.Data
             ms.Seek(0, SeekOrigin.Begin);
 
             // BLOBストレージにアップロード
-            AzStorage storage = new AzStorage(connectionstring);
+            AzStorage storage = new AzStorage(optionsAccessor.azStorageStrings.Dev);
             storage.UploadExcelAsync(ms);
         }
     }
