@@ -20,7 +20,11 @@ namespace DDBlazorApp1
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<OptionsAccessor>(Configuration);
+            IConfigurationSection licensestring = Configuration.GetSection("LicenseStrings");
+            services.Configure<LicenseStrings>(licensestring);
+
+            IConfigurationSection azstroragestring = Configuration.GetSection("ConnectionStrings");
+            services.Configure<AzStorageStrings>(azstroragestring);
 
             services.AddRazorPages();
             services.AddServerSideBlazor();

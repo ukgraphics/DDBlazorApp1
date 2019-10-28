@@ -9,17 +9,19 @@ namespace DDBlazorApp1.Data
 {
     public class DDPdfService
     {
-        private OptionsAccessor OptionsAccessor { get; }
+        private readonly string key;
+        private readonly string connectionstring;
 
-        public DDPdfService(IOptions<OptionsAccessor> optionsAccessor)
+        public DDPdfService(IOptions<LicenseStrings> licensestrings, IOptions<AzStorageStrings> azstoragestrings)
         {
-            OptionsAccessor = optionsAccessor.Value;
+            key = licensestrings.Value.DioDocsPdf;
+            connectionstring = azstoragestrings.Value.Dev;
         }
 
         public void Create(string platformname)
         {
             // ライセンスキー設定
-            //GcPdfDocument.SetLicenseKey(optionsAccessor.licenseStrings.DioDocsPdf);
+            //GcPdfDocument.SetLicenseKey(key);
 
             // PDFドキュメントを作成します。
             GcPdfDocument doc = new GcPdfDocument();
@@ -38,7 +40,7 @@ namespace DDBlazorApp1.Data
             ms.Seek(0, SeekOrigin.Begin);
 
             // BLOBストレージにアップロード
-            AzStorage storage = new AzStorage(OptionsAccessor.AzStorageStrings.Dev);
+            AzStorage storage = new AzStorage(connectionstring);
             storage.UploadPdfAsync(ms);
         }
     }

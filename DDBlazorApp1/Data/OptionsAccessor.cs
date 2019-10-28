@@ -1,11 +1,5 @@
 ﻿namespace DDBlazorApp1.Data
 {
-    public class OptionsAccessor
-    {
-        public LicenseStrings LicenseStrings { get; set; }
-        public AzStorageStrings AzStorageStrings { get; set; }
-    }
-
     public class LicenseStrings
     {
         public string DioDocsExcel { get; set; }
