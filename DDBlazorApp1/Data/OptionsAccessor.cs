@@ -2,8 +2,8 @@
 {
     public class OptionsAccessor
     {
-        public LicenseStrings licenseStrings { get; set; }
-        public AzStorageStrings azStorageStrings { get; set; }
+        public LicenseStrings LicenseStrings { get; set; }
+        public AzStorageStrings AzStorageStrings { get; set; }
     }
 
     public class LicenseStrings

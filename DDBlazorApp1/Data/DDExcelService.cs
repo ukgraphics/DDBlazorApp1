@@ -6,11 +6,11 @@ namespace DDBlazorApp1.Data
 {
     public class DDExcelService
     {
-        private OptionsAccessor optionsAccessor { get; }
+        private OptionsAccessor OptionsAccessor { get; }
 
-        public DDExcelService(IOptions<OptionsAccessor> _optionsAccessor)
+        public DDExcelService(IOptions<OptionsAccessor> optionsAccessor)
         {
-            optionsAccessor = _optionsAccessor.Value;
+            OptionsAccessor = optionsAccessor.Value;
         }
 
         public void Create(string platformname)
@@ -34,7 +34,7 @@ namespace DDBlazorApp1.Data
             ms.Seek(0, SeekOrigin.Begin);
 
             // BLOBストレージにアップロード
-            AzStorage storage = new AzStorage(optionsAccessor.azStorageStrings.Dev);
+            AzStorage storage = new AzStorage(OptionsAccessor.AzStorageStrings.Dev);
             storage.UploadExcelAsync(ms);
         }
     }

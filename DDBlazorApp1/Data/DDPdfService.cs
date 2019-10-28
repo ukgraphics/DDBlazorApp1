@@ -9,11 +9,11 @@ namespace DDBlazorApp1.Data
 {
     public class DDPdfService
     {
-        private OptionsAccessor optionsAccessor { get; }
+        private OptionsAccessor OptionsAccessor { get; }
 
-        public DDPdfService(IOptions<OptionsAccessor> _optionsAccessor)
+        public DDPdfService(IOptions<OptionsAccessor> optionsAccessor)
         {
-            optionsAccessor = _optionsAccessor.Value;
+            OptionsAccessor = optionsAccessor.Value;
         }
 
         public void Create(string platformname)
@@ -38,7 +38,7 @@ namespace DDBlazorApp1.Data
             ms.Seek(0, SeekOrigin.Begin);
 
             // BLOBストレージにアップロード
-            AzStorage storage = new AzStorage(optionsAccessor.azStorageStrings.Dev);
+            AzStorage storage = new AzStorage(OptionsAccessor.AzStorageStrings.Dev);
             storage.UploadPdfAsync(ms);
         }
     }
