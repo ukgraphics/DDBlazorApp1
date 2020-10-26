@@ -1,2 +1,2 @@
 # DDBlazorApp1
-DioDocs + Blazor + Azure Storage.
+DioDocs + Blazor Server + Azure Storage.
